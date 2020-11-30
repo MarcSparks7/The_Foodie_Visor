@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Foodie Visor</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>extends</h2>
     {% for recipe in recipes %}
+        {{ recipe.category_name }}<br>
         {{ recipe.recipe_name }}<br>
-    {% end for %}
-</body>
-</html>
+        {{ recipe.ingredients }}<br>
+        {{ recipe.method }}<br>
+        {{ recipe.tips }}<br>
+    {% endfor %}
+
+
+{% endblock %}
