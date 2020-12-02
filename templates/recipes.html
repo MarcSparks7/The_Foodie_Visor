@@ -24,9 +24,18 @@
     {% for recipe in recipes %}
         {{ recipe.category_name }}<br>
         {{ recipe.recipe_name }}<br>
-        {{ recipe.ingredients }}<br>
-        {{ recipe.method }}<br>
-        {{ recipe.tips }}<br>
+        <h2>Ingredients</h2>
+        {% for ingredients in recipe.ingredients %}
+        <ul class="ingredients">
+            <li>{{ ingredients }}</li>
+        </ul>
+        {% endfor %}
+        <h2>method</h2>
+        {% for method in recipe.method %}
+            <ul class="method">
+                <li>{{method}}</li>
+            </ul>
+        {% endfor %}
     {% endfor %}
 
 
