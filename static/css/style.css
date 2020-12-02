@@ -1,3 +1,7 @@
 ul.ingredients {
     list-style-type: square;
 }
+
+ol {
+    list-style-type: upper-roman;
+}
