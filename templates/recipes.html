@@ -21,67 +21,27 @@
         </form>
     </div>
 
-{% for recipe in recipes %}
-{{ recipe.category_name }}
+
+
 <div class="row">
+    {% for recipe in recipes %}
     <div class="col s4 m4">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-            <h3><strong>{{ recipe.recipe_name }}</strong></h3>
-            <h4>Ingredients</h4>
-            {% for ingredients in recipe.ingredients %}
-            <ul class="ingredients">
-                <li>{{ ingredients }}</li>
-            </ul>
-            {% endfor %}
-            <h4>method</h4>
-            {% for method in recipe.method %}
-                <ol class="method">
-                    <li>{{method}}</li>
-                </ol>
-            {% endfor %}
+        <div class="card" style="height: 800px">
+            <div class="card-image">
+            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2014%2F11%2F403891_Sugar-Coated-Pecans_Photo-by-SavedByGrace.jpg&w=272&h=272&c=sc&poi=%5B318%2C223%5D&q=85">
+            <span class="card-title">{{ recipe.recipe_name }}</span>
+            </div>
+            <div class="card-content">
+            <p>{{ recipe.description }}</p>
+            </div>
+            <div class="card-action">
+            <a href="#">This is a link</a>
             </div>
         </div>
     </div>
-     <div class="col s4 m4">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-            <h3><strong>{{ recipe.recipe_name }}</strong></h3>
-            <h4>Ingredients</h4>
-            {% for ingredients in recipe.ingredients %}
-            <ul class="ingredients">
-                <li>{{ ingredients }}</li>
-            </ul>
-            {% endfor %}
-            <h4>method</h4>
-            {% for method in recipe.method %}
-                <ol class="method">
-                    <li>{{method}}</li>
-                </ol>
-            {% endfor %}
-            </div>
-        </div>
-    </div>
-     <div class="col s4 m4">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-            <h3><strong>{{ recipe.recipe_name }}</strong></h3>
-            <h4>Ingredients</h4>
-            {% for ingredients in recipe.ingredients %}
-            <ul class="ingredients">
-                <li>{{ ingredients }}</li>
-            </ul>
-            {% endfor %}
-            <h4>method</h4>
-            {% for method in recipe.method %}
-                <ol class="method">
-                    <li>{{method}}</li>
-                </ol>
-            {% endfor %}
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
-{% endfor %}
+
+
 
 {% endblock %}
