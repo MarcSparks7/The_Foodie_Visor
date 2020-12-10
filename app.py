@@ -41,7 +41,7 @@ def add_recipe():
             "description": request.form.get("description"),
             "created_by": session["user"]
         }
-        mongo.db.tasks.insert_one(recipe)
+        mongo.db.recipes.insert_one(recipe)
         flash("Recipe Added Successfully Added")
         return redirect(url_for("get_recipes"))
 
