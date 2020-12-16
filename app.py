@@ -34,16 +34,22 @@ def search():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    if 'recipe_image' in request.files:
+        recipe_image = request.files['recipe_image']
+        mongo.save_file(recipe_image.filename, recipe_image)
+
     if request.method == "POST":
         recipe = {
             "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
             "description": request.form.get("description"),
             "ingredients": request.form.getlist("ingredients"),
-            "file": request.form.get("file"),
+            "recipe_image_name": recipe_image.filename,
             "created_by": session["user"]
-        }
-        mongo.db.recipes.insert_one(recipe)
+           }
+
+        mongo.db.recipes.insert(recipe)
+
         flash("Recipe Added Successfully Added")
         return redirect(url_for("get_recipes"))
 
