@@ -28,7 +28,7 @@
     <div class="col s4 m4">
         <div class="card" style="height: 800px">
             <div class="card-image">
-            <img src="{{ url_for('file', filename=recipes['recipe_image_name']) }}">
+            <img src="{{ url_for('get_recipes', file=recipes['recipe_image_name']) }}">
             <span class="card-title">{{ recipe.recipe_name }}</span>
             </div>
             <div class="card-content">
