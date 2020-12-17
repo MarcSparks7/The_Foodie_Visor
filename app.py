@@ -22,12 +22,18 @@ mongo = PyMongo(app)
 @app.route("/get_recipes")
 def get_recipes():
     recipes = mongo.db.recipes.find()
-    images = file(filename)
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/file/<filename>")
 def file(filename):
     return mongo.send_file(filename)
+
+
+@app.route("/recipe/<recipe_name>")
+def image(recipe_name):
+    images = mongo.db.recipes.find_one({'recipe_name': recipe_name})
+    return (images)
 
 
 @app.route("/search", methods=["GET", "POST"])
